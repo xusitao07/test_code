@@ -1,11 +1,12 @@
 import unittest
+import pymysql
 import requests
 import json
 from Logs.log import log1
 import getcwd
 import os
 import configparser
-
+import random
 path = getcwd.get_cwd()
 config_path = os.path.join(path, 'Config/config.ini')
 
@@ -86,9 +87,53 @@ class webrequests(unittest.TestCase):
                 return v
             else:
                 if type(v) is dict:
-                    re = self.getdict(v,obj,default)    # 递归
+                    re = webrequests.getdict(self,v,obj,default)    # 递归
                     if re is not default:
                         return re
+
+    def getdict_hopeval(self,dic, obj):
+        ''' 遍历嵌套字典，得到想要的value或key
+            dict1所需遍历的字典
+            obj 所需key的键
+
+            返回最后一级字典的key的列表
+            '''
+        a = []
+        try:
+            for k, v in dic.items():
+                if k == obj:
+                    for k2,v2 in v.items():
+                        a.append(k2)
+                    return a
+                elif type(v) is dict:
+                    re = webrequests.getdict_hopeval(self, v, obj)
+                    if re is not None:
+                        return re
+
+
+        except BaseException as t:
+            log1.error("获取失败！", exc_info=1)
+
+    def getdict_hopeval_value(self,dic, obj):
+        ''' 遍历嵌套字典，得到想要的value或key
+            dict1所需遍历的字典
+            obj 所需key的键
+
+            返回最后一级字典的value的列表
+            '''
+        a = []
+        try:
+            for k, v in dic.items():
+                if k == obj:
+                    for k2,v2 in v.items():
+                        a.append(v2)
+                    return a
+                elif type(v) is dict:
+                    re = webrequests.getdict_hopeval_value(self, v, obj)
+                    if re is not None:
+                        return re
+        except BaseException as t:
+            log1.error("获取失败！", exc_info=1)
 
 
     def confige_get(self,section,key,url=None):
@@ -144,7 +189,7 @@ class webrequests(unittest.TestCase):
         '''读取配置文件某section下所有key ,value 并转换成字典形式'''
         config = configparser.ConfigParser()
         config.read(config_path,encoding='utf-8')
-        data = config.items(section)
+        data = dict(config.items(section))
         return data
 
 
@@ -158,3 +203,43 @@ class webrequests(unittest.TestCase):
                 L.append(emails)
                 sum += 1
         return L
+
+
+    def mobile_num(self):
+        '''随机生成手机号'''
+        try:
+            lis = ['189','159','187','136','176','134']
+            var = random.choice(lis)+''.join(str(random.choice(range(10)))for i in range(8))
+            print('号码%s'%var)
+            return var
+        except BaseException as e:
+            log1.error("生成失败！",exc_info=1)
+
+    def get_identifying_code(self,sql,pram,DB):
+        '''数据库中获取验证码'''
+        connection = pymysql.connect(host='192.168.113.116', port=3306, user='zjmax', password='zjmax.com', db=DB,
+                                     charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        cursor = connection.cursor()
+
+        Sql = sql
+        cursor.execute(Sql)
+        connection.commit()
+        results = cursor.fetchall()
+        print(results)
+        for row in results:
+            code = row[pram]
+            #print(code)
+        connection.close()
+        return code
+
+    def get_identifying_code2(self,sql,pram,DB):
+        '''数据库中获取验证码'''
+        connection = pymysql.connect(host='192.168.113.116', port=3306, user='zjmax', password='zjmax.com', db=DB,
+                                     charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        cursor = connection.cursor()
+
+        Sql = sql
+        cursor.execute(Sql)
+        connection.commit()
+        results = cursor.fetchall()
+        return  results
