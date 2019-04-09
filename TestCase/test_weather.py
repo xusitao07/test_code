@@ -118,6 +118,7 @@ class weather(unittest.TestCase):
                 log1.info('接口未返回数据请查看服务是否正常')
         except BaseException as l:
             log1.info('测试用例执行出错：%s'%case_name,exc_info=1)
+            raise
     def test_4_collectInformation103(self):
         '''收集用户信息'''
         case_name = '收集用户信息'
@@ -137,6 +138,7 @@ class weather(unittest.TestCase):
             log1.info('校验返回的字段是不是预期的字段通过')
         except BaseException as e:
             log1.info('测试用例执行出错：%s'%case_name,exc_info=1)
+            raise
     def test_5_ResetTheTransactionPassword104(self):
         '''收集用户信息104'''
         case_name = '收集用户信息'
@@ -185,6 +187,7 @@ class weather(unittest.TestCase):
 
         except BaseException as e:
             log1.info('用例执行失败：%s'%case_name,exc_info=1)
+            raise
     def test_6_ResetTheLoginPassword105(self):
         '''重置登录密码'''
         case_name = '重置登录密码'
@@ -225,6 +228,7 @@ class weather(unittest.TestCase):
 
         except BaseException as e:
             log1.info('用例执行失败：%s'%case_name,exc_info=1)
+            raise
     def test_7_CheckPassword107(self):
         '''校验密码107'''
         case_name = '校验密码'
@@ -268,6 +272,7 @@ class weather(unittest.TestCase):
             log1.info('参数校验msg="系统繁忙，请稍后再试"1次通过')
         except BaseException as e:
             log1.info('用例执行失败：%s'%case_name,exc_info=1)
+            raise
     @staticmethod
     def get_code(self,domain):
         '''获取验证码，用途域：register注册|login登录|login_pass重置登录密码|
@@ -289,6 +294,7 @@ class weather(unittest.TestCase):
                 'num_sms')
         except BaseException as e:
             log1.info('验证码获取异常',e)
+            raise
     def test_7_swithMessage108(self):
         '''切换短信验证开关'''
         case_name = '切换短信验证开关'
@@ -318,6 +324,7 @@ class weather(unittest.TestCase):
             log1.info('参数校验msg=成功1次通过')
         except BaseException as e:
             log1.info('用例执行失败：%s'%case_name,exc_info=1)
+            raise
     def test_7_GetAddressBook109(self):
         '''获取用户地址簿'''
         case_name = '获取用户地址簿'
@@ -345,6 +352,7 @@ class weather(unittest.TestCase):
             log1.info('校验地址字段期望值和实际值相等测试通过')
         except BaseException as e:
             log1.info('用例执行失败：%s'%case_name,exc_info=1)
+            raise
     def test_8_AddAddress110(self):
         '''新增用户地址'''
         case_name = '新增用户地址'
@@ -394,6 +402,7 @@ class weather(unittest.TestCase):
             log1.info('c计数1次通过')
         except BaseException as e:
             log1.info('用例执行失败：%s'%case_name,exc_info=1)
+            raise
     def test_9_DeleteAddress111(self):
         '''删除用户地址'''
         case_name = '删除用户地址'
@@ -422,6 +431,7 @@ class weather(unittest.TestCase):
                 else: log1.info('成功和参数不能为空的校验失败，请检查接口是否正常。。。。')
         except BaseException as e :
             log1.info('用例执行失败：%s'%case_name,exc_info=1)
+            raise
     def test_10_GetAccountInformation150(self):
         '''获取账户信息'''
         case_name = '获取账户信息'
@@ -452,6 +462,7 @@ class weather(unittest.TestCase):
                 log1.info('请检查接口是否正常')
         except BaseException as e:
             log1.info('用例执行失败：%s'%case_name,exc_info=1)
+            raise
     def test_11_ModifyCurrencyDisplay151(self):
         '''修改用户币种展示'''
         case_name = '修改用户币种展示'
@@ -472,6 +483,7 @@ class weather(unittest.TestCase):
             else: log1.info('查看接口是否正常')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_12_GetWalletAssets152(self):
         '''获取钱包资产详情'''
         case_name = '修改用户币种展示'
@@ -511,6 +523,7 @@ class weather(unittest.TestCase):
             else: log1.info('查看接口是否正常')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_13_GetTransactionRecords153(self):
         '''获取交易记录详情'''
         case_name = '获取交易记录详情'
@@ -542,6 +555,7 @@ class weather(unittest.TestCase):
                 log1.info('data数据返回正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_14_TransferPage154(self):
         '''转账页面'''
         case_name = '转账页面'
@@ -569,6 +583,7 @@ class weather(unittest.TestCase):
                 log1.info('data数据返回正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_15_TransferAccounts156(self):
         '''转账'''
         case_name = '转账'
@@ -590,6 +605,7 @@ class weather(unittest.TestCase):
             else: log1.info('请检查接口是否正常')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_16_TransferChecking155(self):
         '''转账检测'''
         case_name = '转账检测'
@@ -612,6 +628,7 @@ class weather(unittest.TestCase):
                 log1.info('请检查接口是否正常')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_17_ScanningCode157(self):
         '''扫码付款'''
         case_name = '扫码付款'
@@ -639,6 +656,7 @@ class weather(unittest.TestCase):
                 log1.info('data数据返回正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_18_CollectionInterface158(self):
         '''收款界面'''
         case_name = '收款界面'
@@ -662,6 +680,7 @@ class weather(unittest.TestCase):
                 log1.info('data数据返回正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_19_GetBalance159(self):
         '''获取用户比账户余额'''
         case_name = '获取用户比账户余额'
@@ -685,6 +704,7 @@ class weather(unittest.TestCase):
                 log1.info('data数据返回正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_20_GetCurrencyList200(self):
         '''获取币种展示列表'''
         case_name = '获取币种展示列表'
@@ -713,6 +733,7 @@ class weather(unittest.TestCase):
                 log1.info('data数据返回正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_21_CheckRatioAddress201(self):
         '''获取币种展示列表'''
         case_name = '获取币种展示列表'
@@ -748,6 +769,7 @@ class weather(unittest.TestCase):
             log1.info('无效的地址格式测试通过')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_22_MarketList250(self):
 
         '''获取用户行情列表'''
@@ -760,10 +782,12 @@ class weather(unittest.TestCase):
             status_code, response_json = MarketList.post(url, data, header)
             self.assertEqual(status_code, 200)
             messg = MarketList.getdict(response_json, 'msg')
+            print('aaa',messg)
             if messg is not None:
                 self.assertEqual(messg, '成功')
                 log1.info('msg返回正确')
                 datalist = MarketList.getdict(response_json, 'list')
+                print(datalist)
                 self.assertEqual(len(datalist), 3)
                 log1.info('list返回的币种个数符合预期')
                 Expected = ["coin_code",
@@ -784,6 +808,7 @@ class weather(unittest.TestCase):
                 log1.info('data数据返回key正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_23_TransactionPairList251(self):
 
         '''获取交易对列表'''
@@ -816,6 +841,7 @@ class weather(unittest.TestCase):
                 log1.info('data数据返回key正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_24_Quotation252(self):
 
         '''收藏或取消行情'''
@@ -843,6 +869,7 @@ class weather(unittest.TestCase):
             log1.info('msg返回正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_25_QuotationSort253(self):
 
         '''用户行情排序'''
@@ -866,6 +893,7 @@ class weather(unittest.TestCase):
             else:log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_26_GetKeys400(self):
 
         '''获取公私钥'''
@@ -896,6 +924,7 @@ class weather(unittest.TestCase):
             else:log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_27_CurrencyList404(self):
 
         '''获取计价货币列表'''
@@ -930,6 +959,7 @@ class weather(unittest.TestCase):
             else:log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_28_ChangeCurrencyList405(self):
 
         '''切换当前计价方式'''
@@ -957,6 +987,7 @@ class weather(unittest.TestCase):
             log1.info('msg返回正确')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_29_GetH5Address406(self):
 
         '''获取计价货币列表'''
@@ -981,6 +1012,7 @@ class weather(unittest.TestCase):
                 log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_30_RegisteredColdWallet500(self):
 
         '''获取计价货币列表'''
@@ -1005,6 +1037,7 @@ class weather(unittest.TestCase):
                 log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_31_ImportcoldWallet501(self):
 
         '''导入冷钱包'''
@@ -1029,6 +1062,7 @@ class weather(unittest.TestCase):
                 log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_32_RedEnvelopes550(self):
 
         '''用户发送红包'''
@@ -1067,6 +1101,7 @@ class weather(unittest.TestCase):
             log1.info('两次发红包都正常')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_33_RedRecords551(self):
 
         '''红包记录'''
@@ -1103,6 +1138,7 @@ class weather(unittest.TestCase):
                 log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_34_MessageNotification(self):
 
         '''消息通知'''
@@ -1136,6 +1172,7 @@ class weather(unittest.TestCase):
                 log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_35_ReadMessageNotification(self):
 
         '''消息点击阅读'''
@@ -1160,6 +1197,7 @@ class weather(unittest.TestCase):
                 log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_36_SafetyGrade(self):
 
         '''安全等级'''
@@ -1188,6 +1226,7 @@ class weather(unittest.TestCase):
                 log1.info('测试异常请检查数据')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_37_ServiceAgreement(self):
 
         '''获取服务协议'''
@@ -1202,6 +1241,7 @@ class weather(unittest.TestCase):
             self.assertEqual(messg,'成功')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_38_MarketDetails(self):
 
         '''获取行情详情'''
@@ -1225,6 +1265,7 @@ class weather(unittest.TestCase):
             else:log1.info('请检查接口是否正常')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_39_HelpContent(self):
 
         '''获取帮助内容'''
@@ -1249,6 +1290,7 @@ class weather(unittest.TestCase):
             else:log1.info('请检查接口是否正常')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_40_RedPackets(self):
 
         '''获取红包详情'''
@@ -1273,6 +1315,7 @@ class weather(unittest.TestCase):
             else:log1.info('请检查接口是否正常')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
     def test_41_HandRed(self):
         '''领红包'''
         case_name = '领红包'
@@ -1330,6 +1373,7 @@ class weather(unittest.TestCase):
             log1.info('两种红包都以领取')
         except BaseException as e:
             log1.info('用例执行失败：%s' % case_name, exc_info=1)
+            raise
 
 
 
